@@ -1,11 +1,15 @@
 const http = require("node:http");
 
-const { errorPage, getAdverts } = require("./controllers/index");
+const { errorPage, getAdverts, addAdverts } = require("./controllers/index");
 
 const server = http.createServer((req, res) => {
-  switch (req.url || req.method) {
-    case "/adverts" || "GET":
+  console.log(req.method + req.url);
+  switch (req.method + req.url) {
+    case "GET/adverts":
       getAdverts(req, res);
+      break;
+    case "POST/adverts":
+      addAdverts(req, res);
       break;
     default:
       errorPage(req, res);
