@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const getStyles = (req, res) => {
-  const cssPath = path.join(__dirname, "../public", "styles.css");
+  const cssPath = path.join(__dirname, "../static", "styles.css");
   fs.readFile(cssPath, (err, data) => {
     if (err) {
       res.writeHead(500, { "Content-Type": "text/plain" });

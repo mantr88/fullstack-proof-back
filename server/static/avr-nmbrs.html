@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Average numbers</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav>
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/adverts">Adverts</a></li>
+          <li><a href="/avr-numbers">Average numbers</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h3 class="title">Get Average number</h3>
+      <form id="avr-form" method="post" class="form">
+        <label for="number" class="form-field">
+          Number
+          <input
+            class="form-input"
+            type="text"
+            name="number"
+            id="number"
+            placeholder="Enter number"
+          />
+        </label>
+        <label for="negative" class="form-field">
+          Is negative? <input type="checkbox" name="negative" />
+        </label>
+        <label for="text" class="form-field">
+          Is fraction? <input type="checkbox" name="fraction" />
+        </label>
+        <button type="submit" class="submit-btn">Submit and get average</button>
+      </form>
+      <div class="avr-results">
+        <h4>Average calculation results:<span id="result"></span></h4>
+        <h4>Previous average calculation results:</h4>
+      </div>
+    </main>
+  </body>
+</html>

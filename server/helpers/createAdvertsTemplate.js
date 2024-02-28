@@ -5,9 +5,19 @@ const createAdvertsTemplate = async (adverts) => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='/styles.css'/>
-    <title>Fullstack</title>
+    <title>Adverts</title>
     </head>
     <body>
+      <header class="header">
+      <nav>
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/adverts">Adverts</a></li>
+          <li><a href="/avr-numbers">Average numbers</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
     <h1 class='title'>Adverts</h1>
     <form id="adverts-form" method="post" class='form'>
       <label for="author" class="form-field">
@@ -37,6 +47,7 @@ const createAdvertsTemplate = async (adverts) => {
             .join("")
     }
     </ul>
+    </main>
     </body>
     </html>`;
 };
