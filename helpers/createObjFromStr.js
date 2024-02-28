@@ -8,9 +8,9 @@ function createObjectFromString(str) {
     var key = keyValue[0];
     var value = keyValue[1].split("+").join(" ");
 
-    // // Decode URI components to handle special characters in the values
-    // key = decodeURIComponent(key);
-    // value = decodeURIComponent(value);
+    // Decode URI components to handle special characters in the values
+    key = decodeURIComponent(key);
+    value = decodeURIComponent(value);
 
     obj[key] = value;
   }

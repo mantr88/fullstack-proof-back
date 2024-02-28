@@ -1,6 +1,7 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
 const createAdvertsTemplate = require("../helpers/createAdvertsTemplate");
+const { error } = require("node:console");
 
 const getAdverts = async (req, res) => {
   try {

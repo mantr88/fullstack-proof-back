@@ -9,27 +9,31 @@ const addAdverts = async (req, res) => {
     const filePath = path.join(__dirname, "../data", "adverts.json");
 
     const advertsJson = await fs.readFile(filePath);
-    const adverts = JSON.parse(advertsJson);
+    let adverts = JSON.parse(advertsJson);
 
-    let body = [];
+    let body = "";
     req
       .on("data", (chunk) => {
-        body.push(chunk);
+        body += chunk.toString();
       })
-      .on("end", () => {
-        body = Buffer.concat(body).toString();
+      .on("end", async () => {
         const newAdvert = createObjectFromString(body);
         adverts.push(newAdvert);
+
+        await fs.writeFile(filePath, JSON.stringify(adverts));
+
+        const result = await createAdvertsTemplate(adverts);
+        const markup = result.toString();
+
+        res.writeHead(303, {
+          "Content-Type": "text/html",
+          Location: "/adverts",
+        });
+        res.write(markup);
+        res.end();
       });
-
-    await fs.writeFile(filePath, JSON.stringify(adverts));
-
-    const result = await createAdvertsTemplate(adverts);
-    const markup = result.toString();
-
-    res.write(markup);
-    res.end();
   } catch (error) {
+    console.log("error:", error);
     res.writeHead(500, { "Content-Type": "text/plain" });
     res.write("Internal Server Error");
     res.end();

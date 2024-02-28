@@ -4,23 +4,24 @@ const createAdvertsTemplate = async (adverts) => {
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='/styles.css'/>
     <title>Fullstack</title>
     </head>
     <body>
-    <h1>Adverts page</h1>
-    <form id="adverts-form" method="post" action="./adverts">
-  <label for="author">
-    Author
-    <input type="text" name="author" id="author" />
-  </label>
-  <label for="text">
-    Text your adverts
-    <input type="text" name="text" id="text" />
-  </label>
-  <button type="submit">Add adverts</button>
-</form>
-    <p>Adverts</p>
-    <ul>${
+    <h1 class='title'>Adverts</h1>
+    <form id="adverts-form" method="post" class='form'>
+      <label for="author" class="form-field">
+        Author
+        <input class='form-input' type="text" name="author" id="author" placeholder="Enter your name"/>
+      </label>
+      <label for="text" class="form-field">
+        Text your adverts
+        <textarea class='form-input' type="text" name="text" id="text" rows="5" placeholder="Enter text of ads"></textarea>
+      </label>
+      <button type="submit" class='submit-btn'>Add adverts</button>
+    </form>
+    <h3>Published adverts</h3>
+    <ul class='adverts-list'>${
       adverts.length === 0
         ? `<li>
     <p>Same author</p>
@@ -29,8 +30,8 @@ const createAdvertsTemplate = async (adverts) => {
         : adverts
             .map((item) => {
               return `<li>
-    <p>${item.author}</p>
-    <p>${item.text}<p/>
+    <p><span>Author: </span>${item.author}</p>
+    <p><span>Text: </span>${item.text}<p/>
     </li>`;
             })
             .join("")
