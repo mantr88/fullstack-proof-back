@@ -33,14 +33,17 @@
           Is negative? <input type="checkbox" name="negative" />
         </label>
         <label for="text" class="form-field">
-          Is fraction? <input type="checkbox" name="fraction" />
+          Is fraction?
+          <input type="checkbox" name="fraction" value="fraction" />
         </label>
         <button type="submit" class="submit-btn">Submit and get average</button>
       </form>
       <div class="avr-results">
         <h4>Average calculation results:<span id="result"></span></h4>
         <h4>Previous average calculation results:</h4>
+        <ul class="prev-result-list"></ul>
       </div>
     </main>
+    <script src="./script.js"></script>
   </body>
 </html>

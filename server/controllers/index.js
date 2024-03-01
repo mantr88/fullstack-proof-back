@@ -5,6 +5,8 @@ const getStyles = require("./getStyles");
 const getHome = require("./getHome");
 const getImage = require("./getImage");
 const getAverage = require("./getAverage");
+const getScript = require("./getScript");
+const calcAverage = require("./calcAverage");
 
 module.exports = {
   errorPage,
@@ -14,4 +16,6 @@ module.exports = {
   getHome,
   getImage,
   getAverage,
+  getScript,
+  calcAverage,
 };

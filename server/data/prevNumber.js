@@ -1,0 +1,1 @@
+const prevNumber = 0;

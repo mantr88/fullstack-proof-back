@@ -8,6 +8,8 @@ const {
   getHome,
   getImage,
   getAverage,
+  getScript,
+  calcAverage,
 } = require("./controllers/index");
 
 const server = http.createServer((req, res) => {
@@ -25,8 +27,14 @@ const server = http.createServer((req, res) => {
     case "GET/avr-numbers":
       getAverage(req, res);
       break;
+    case "POST/avr-numbers":
+      calcAverage(req, res);
+      break;
     case "GET/styles.css":
       getStyles(req, res);
+      break;
+    case "GET/script.js":
+      getScript(req, res);
       break;
     case "GET/static/images/20191021_114316.jpg":
       getImage(req, res);
