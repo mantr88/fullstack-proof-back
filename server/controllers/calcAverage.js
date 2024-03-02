@@ -12,6 +12,7 @@ const calcAverage = async (req, res) => {
     const historyBlob = await fs.readFile(historyFilePath);
     const history = JSON.parse(historyBlob);
 
+    let body = [];
     req
       .on("data", (chunk) => {
         body.push(chunk);

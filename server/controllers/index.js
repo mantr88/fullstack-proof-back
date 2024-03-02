@@ -7,6 +7,7 @@ const getImage = require("./getImage");
 const getAverage = require("./getAverage");
 const getScript = require("./getScript");
 const calcAverage = require("./calcAverage");
+const getHistory = require("./getHistory");
 
 module.exports = {
   errorPage,
@@ -18,4 +19,5 @@ module.exports = {
   getAverage,
   getScript,
   calcAverage,
+  getHistory,
 };

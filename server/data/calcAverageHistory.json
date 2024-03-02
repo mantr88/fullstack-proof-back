@@ -1,10 +1,1 @@
-[
-  { "prevNumber": 0, "givenNumber": 0, "averageNumber": 0 },
-  { "prevNumber": 0, "givenNumber": 2, "averageNumber": 1 },
-  { "prevNumber": 2, "givenNumber": 2, "averageNumber": 3 },
-  { "prevNumber": 2, "givenNumber": 2, "averageNumber": 2 },
-  { "prevNumber": 2, "givenNumber": 3, "averageNumber": 2.5 },
-  { "prevNumber": 3, "givenNumber": 4, "averageNumber": 3.5 },
-  { "prevNumber": 4, "givenNumber": 5, "averageNumber": 4.5 },
-  { "prevNumber": 5, "givenNumber": 6, "averageNumber": 5.5 }
-]
+[{"prevNumber":0,"givenNumber":0,"averageNumber":0},{"prevNumber":0,"givenNumber":2,"averageNumber":1},{"prevNumber":2,"givenNumber":2,"averageNumber":3},{"prevNumber":2,"givenNumber":2,"averageNumber":2},{"prevNumber":2,"givenNumber":3,"averageNumber":2.5},{"prevNumber":3,"givenNumber":4,"averageNumber":3.5},{"prevNumber":4,"givenNumber":5,"averageNumber":4.5},{"prevNumber":5,"givenNumber":6,"averageNumber":5.5},{"prevNumber":6,"givenNumber":4,"averageNumber":5},{"prevNumber":4,"givenNumber":6,"averageNumber":5},{"prevNumber":6,"givenNumber":10,"averageNumber":8},{"prevNumber":10,"givenNumber":10,"averageNumber":10},{"prevNumber":10,"givenNumber":11,"averageNumber":10.5},{"prevNumber":11,"givenNumber":12,"averageNumber":11.5},{"prevNumber":12,"givenNumber":1123,"averageNumber":567.5},{"prevNumber":1123,"givenNumber":1123124,"averageNumber":562123.5},{"prevNumber":1123124,"givenNumber":15,"averageNumber":561569.5}]

@@ -10,6 +10,7 @@ const {
   getAverage,
   getScript,
   calcAverage,
+  getHistory,
 } = require("./controllers/index");
 
 const server = http.createServer((req, res) => {
@@ -26,6 +27,9 @@ const server = http.createServer((req, res) => {
       break;
     case "GET/avr-numbers":
       getAverage(req, res);
+      break;
+    case "GET/avr-numbers/history":
+      getHistory(req, res);
       break;
     case "POST/avr-numbers":
       calcAverage(req, res);
