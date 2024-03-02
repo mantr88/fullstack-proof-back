@@ -1,26 +1,51 @@
-const createObjectFromString = require("../helpers/createObjFromStr");
+const fs = require("node:fs/promises");
+const path = require("node:path");
 
-const calcAverage = (req, res) => {
-  let body = [];
+const calcAverage = async (req, res) => {
+  try {
+    const historyFilePath = path.join(
+      __dirname,
+      "../data",
+      "calcAverageHistory.json"
+    );
 
-  req
-    .on("data", (chunk) => {
-      body.push(chunk);
-    })
-    .on("end", () => {
-      body = Buffer.concat(body).toString();
-      const bodyObj = JSON.parse(body);
-      let prevNumber = 0;
-      const currentNumber = bodyObj.number;
+    const historyBlob = await fs.readFile(historyFilePath);
+    const history = JSON.parse(historyBlob);
 
-      const averNumber = prevNumber + currentNumber / 2;
+    req
+      .on("data", (chunk) => {
+        body.push(chunk);
+      })
+      .on("end", async () => {
+        body = Buffer.concat(body).toString();
+        const bodyObj = JSON.parse(body);
+        let prevNumber = 0;
 
-      prevNumber = currentNumber;
-      res.write(
-        JSON.stringify({ prevNumber: 0, givenNumber: 2, averageNumber: 1 })
-      );
-      res.end();
-    });
+        if (history[history.length - 1] !== undefined) {
+          prevNumber = history[history.length - 1].givenNumber;
+        }
+        const currentNumber = Number(bodyObj.number);
+
+        const averageNumber = (prevNumber + currentNumber) / 2;
+
+        const resultingObj = {
+          prevNumber,
+          givenNumber: currentNumber,
+          averageNumber,
+        };
+
+        history.push(resultingObj);
+        await fs.writeFile(historyFilePath, JSON.stringify(history));
+
+        res.write(JSON.stringify(resultingObj));
+        res.end();
+      });
+  } catch (error) {
+    console.log("error:", error);
+    res.writeHead(500, { "Content-Type": "text/plain" });
+    res.write("Internal Server Error");
+    res.end();
+  }
 };
 
 module.exports = calcAverage;

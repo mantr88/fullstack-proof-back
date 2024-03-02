@@ -1,7 +1,6 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
 const createObjectFromString = require("../helpers/createObjFromStr");
-const getAdverts = require("./GetAdverts");
 const createAdvertsTemplate = require("../helpers/createAdvertsTemplate");
 
 const addAdverts = async (req, res) => {
