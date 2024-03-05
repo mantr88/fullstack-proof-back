@@ -2,14 +2,13 @@ const fs = require("fs");
 const path = require("path");
 
 const getImage = (req, res) => {
-  const cssPath = path.join(
+  const imgPath = path.join(
     __dirname,
     "../static",
     "images",
     "20191021_114316.jpg"
   );
-  console.log("cssPath: ", cssPath);
-  fs.readFile(cssPath, (err, data) => {
+  fs.readFile(imgPath, (err, data) => {
     if (err) {
       res.writeHead(500, { "Content-Type": "text/plain" });
       res.end("Internal Server Error");

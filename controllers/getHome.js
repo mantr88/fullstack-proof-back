@@ -2,8 +2,8 @@ const fs = require("fs");
 const path = require("path");
 
 const getHome = (req, res) => {
-  const cssPath = path.join(__dirname, "../static", "home.html");
-  fs.readFile(cssPath, (err, data) => {
+  const homePath = path.join(__dirname, "../static", "home.html");
+  fs.readFile(homePath, (err, data) => {
     if (err) {
       res.writeHead(500, { "Content-Type": "text/plain" });
       res.end("Internal Server Error");
