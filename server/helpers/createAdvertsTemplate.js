@@ -40,8 +40,8 @@ const createAdvertsTemplate = async (adverts) => {
         : adverts
             .map((item) => {
               return `<li>
-    <p><span>Author: </span>${item.author}</p>
-    <p><span>Text: </span>${item.text}<p/>
+    <p class="adverts-list-text"><span class="adverts-list-text">Author: </span>${item.author}</p>
+    <p class="adverts-list-text"><span>Text: </span>${item.text}<p/>
     </li>`;
             })
             .join("")

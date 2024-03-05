@@ -19,15 +19,20 @@ const calcAverage = async (req, res) => {
       })
       .on("end", async () => {
         body = Buffer.concat(body).toString();
-        const bodyObj = JSON.parse(body);
+        const { number, isNegative, isFraction } = JSON.parse(body);
         let prevNumber = 0;
 
         if (history[history.length - 1] !== undefined) {
           prevNumber = history[history.length - 1].givenNumber;
         }
-        const currentNumber = Number(bodyObj.number);
-
-        const averageNumber = (prevNumber + currentNumber) / 2;
+        const currentNumber = Number(number.replace(",", "."));
+        let averageNumber = null;
+        if (isFraction === true || isNegative === true) {
+          averageNumber = (prevNumber + currentNumber) / 2;
+        } else {
+          averageNumber =
+            (prevNumber + Math.trunc(Math.abs(currentNumber))) / 2;
+        }
 
         const resultingObj = {
           prevNumber,

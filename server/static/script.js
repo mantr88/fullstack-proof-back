@@ -31,10 +31,10 @@ const renderPrevResult = (array) => {
   const markup = array
     .reverse()
     .map((item) => {
-      return `<li>
-        Previous number: ${item.prevNumber}, 
-        Given number: ${item.givenNumber}, 
-        Average number: ${item.givenNumber}.
+      return `<li class="prev-result-item">
+        <span class="result">Previous number:    ${item.prevNumber}</span> 
+        <span class="result">Given number:     ${item.givenNumber}</span> 
+        <span class="result">Average number:    ${item.givenNumber}</span>
         </li>`;
     })
     .join("");
