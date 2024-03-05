@@ -1,5 +1,5 @@
 const errorPage = require("./errorPage");
-const getAdverts = require("./GetAdverts");
+const getAdverts = require("./getAdverts");
 const addAdverts = require("./addAdverts");
 const getStyles = require("./getStyles");
 const getHome = require("./getHome");
