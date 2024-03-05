@@ -14,7 +14,6 @@ const {
 } = require("./controllers/index");
 
 const server = http.createServer((req, res) => {
-  console.log(req.method + req.url);
   switch (req.method + req.url) {
     case "GET/":
       getHome(req, res);

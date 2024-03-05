@@ -16,7 +16,11 @@ const addAdverts = async (req, res) => {
         body += chunk.toString();
       })
       .on("end", async () => {
-        const newAdvert = createObjectFromString(body);
+        const objectFromBody = createObjectFromString(body);
+        const newAdvert = {
+          date: new Date().toLocaleString(),
+          ...objectFromBody,
+        };
         adverts.push(newAdvert);
 
         await fs.writeFile(filePath, JSON.stringify(adverts));
