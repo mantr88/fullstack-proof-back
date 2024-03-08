@@ -11,9 +11,11 @@ const {
   getScript,
   calcAverage,
   getHistory,
+  getFavicon,
 } = require("./controllers/index");
 
 const server = http.createServer((req, res) => {
+  console.log("req.method + req.url: ", req.method + req.url);
   switch (req.method + req.url) {
     case "GET/":
       getHome(req, res);
@@ -41,6 +43,9 @@ const server = http.createServer((req, res) => {
       break;
     case "GET/static/images/20191021_114316.jpg":
       getImage(req, res);
+      break;
+    case "GET/static/images/favicon.ico":
+      getFavicon(req, res);
       break;
     default:
       errorPage(req, res);
