@@ -3,7 +3,7 @@ const path = require("node:path");
 const createObjectFromString = require("../helpers/createObjFromStr");
 const createAdvertsTemplate = require("../helpers/createAdvertsTemplate");
 
-const addAdverts = async (req, res) => {
+const addAdvert = async (req, res) => {
   try {
     const filePath = path.join(__dirname, "../data", "adverts.json");
 
@@ -43,4 +43,4 @@ const addAdverts = async (req, res) => {
   }
 };
 
-module.exports = addAdverts;
+module.exports = addAdvert;

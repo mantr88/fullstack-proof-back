@@ -3,7 +3,7 @@ const http = require("node:http");
 const {
   errorPage,
   getAdverts,
-  addAdverts,
+  addAdvert,
   getStyles,
   getHome,
   getImage,
@@ -12,6 +12,7 @@ const {
   calcAverage,
   getHistory,
   getFavicon,
+  deleteAdvert,
 } = require("./controllers/index");
 
 const server = http.createServer((req, res) => {
@@ -24,7 +25,10 @@ const server = http.createServer((req, res) => {
       getAdverts(req, res);
       break;
     case "POST/adverts":
-      addAdverts(req, res);
+      addAdvert(req, res);
+      break;
+    case "DELETE/adverts":
+      deleteAdvert(req, res);
       break;
     case "GET/avr-numbers":
       getAverage(req, res);

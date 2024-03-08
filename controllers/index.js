@@ -1,6 +1,7 @@
 const errorPage = require("./errorPage");
 const getAdverts = require("./getAdverts");
-const addAdverts = require("./addAdverts");
+const deleteAdvert = require("./deleteAdvert");
+const addAdvert = require("./addAdvert");
 const getStyles = require("./getStyles");
 const getHome = require("./getHome");
 const getImage = require("./getImage");
@@ -13,7 +14,7 @@ const getFavicon = require("./getFavicon");
 module.exports = {
   errorPage,
   getAdverts,
-  addAdverts,
+  addAdvert,
   getStyles,
   getHome,
   getImage,
@@ -22,4 +23,5 @@ module.exports = {
   calcAverage,
   getHistory,
   getFavicon,
+  deleteAdvert,
 };
