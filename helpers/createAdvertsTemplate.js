@@ -1,3 +1,5 @@
+const formatDate = require("./formatDate");
+
 const createAdvertsTemplate = async (adverts) => {
   return `<!DOCTYPE html>
     <html lang="en">
@@ -41,7 +43,12 @@ const createAdvertsTemplate = async (adverts) => {
         : adverts
             .map((item, idx) => {
               return `<li>
-    <p class="adverts-list-text"><span class="adverts-list-text">Author: </span>${item.author}</p>
+    <p class="adverts-list-text"><span class="adverts-list-text">Date: </span>${formatDate(
+      item.date
+    )}</p>
+    <p class="adverts-list-text"><span class="adverts-list-text">Author: </span>${
+      item.author
+    }</p>
     <p class="adverts-list-text"><span>Text: </span>${item.text}<p/>
 		<button id="delete" class="del-btn" type="button" aria-label="Delete" data-idx=${idx}>
 			<svg class="del-btn__icon" viewBox="0 0 48 48" width="48px" height="48px" aria-hidden="true">
@@ -126,19 +133,17 @@ const deleteButtons = document.querySelectorAll('button[data-idx]');
 deleteButtons.forEach(function(button) {
  button.addEventListener("click", function() {
 	const index = button.getAttribute("data-idx").toString();
-            console.log(index);
-
 			setTimeout(() => {
-	fetch('/adverts',{
-				method:'DELETE',
-				body: JSON.stringify(index),
-			})
-			.then(res=>location.reload())
-			.catch((err)=> {
-				console.log(err);
-				location.reload();
-			})
-}, 1000);
+				fetch('/adverts',{
+					method:'DELETE',
+					body: JSON.stringify(index),
+				})
+				.then(res=>location.reload())
+				.catch((err)=> {
+					console.log(err);
+					location.reload();
+				})
+			}, 1000);
 			
  });
 });
