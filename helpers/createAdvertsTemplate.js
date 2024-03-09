@@ -97,15 +97,11 @@ const createAdvertsTemplate = async (adverts) => {
     </ul>
     </main>
     <script>
-			window.addEventListener("DOMContentLoaded",() => {
-			const d = new DeleteButton("#delete");
-		});
-
 		class DeleteButton {
 			isRunning = false;
 
 			constructor(el) {
-				this.el = document.querySelector(el);
+				this.el = el;
 				this.init();
 			}
 			init() {
@@ -131,6 +127,10 @@ const createAdvertsTemplate = async (adverts) => {
 const deleteButtons = document.querySelectorAll('button[data-idx]');
 
 deleteButtons.forEach(function(button) {
+		window.addEventListener("DOMContentLoaded",() => {
+			const d = new DeleteButton(button);
+		});
+
  button.addEventListener("click", function() {
 	const index = button.getAttribute("data-idx").toString();
 			setTimeout(() => {
@@ -143,7 +143,7 @@ deleteButtons.forEach(function(button) {
 					console.log(err);
 					location.reload();
 				})
-			}, 1000);
+			}, 1250);
 			
  });
 });
