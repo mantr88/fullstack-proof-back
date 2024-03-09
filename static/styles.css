@@ -2,14 +2,15 @@
   /* variables */
   /* colors */
   --first-bg-color: #f8f8f8;
-  --second-bg-color: rgb(125, 180, 239);
-  --third-bg-color: rgb(125, 180, 239);
+  --second-bg-color: #7db4ef;
+  --third-bg-color: #dae8f7;
+  --advert-bg-color: #ffe4e9;
   --hue: 223;
   --bg: hsl(var(--hue), 90%, 90%);
   --fg: hsl(var(--hue), 90%, 10%);
-  --danger: hsl(3, 90%, 45%);
-  --danger-down: hsl(3, 90%, 65%);
-  --white: hsl(0, 0%, 100%);
+  --danger: #da160b;
+  --danger-down: #f65d55;
+  --white: #ffffff;
   --trans-dur: 0.3s;
 }
 
@@ -95,7 +96,7 @@ body {
   align-items: center;
 
   & > li:hover {
-    color: #615a5a;
+    color: var(--white);
   }
 }
 
@@ -178,7 +179,7 @@ main {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 12px;
-    background-color: #ffe4e9;
+    background-color: var(--advert-bg-color);
     border-radius: 8px;
     padding: 8px;
   }
@@ -222,6 +223,12 @@ main {
   grid-template-columns: repeat(3, minmax(150px, 200px));
   column-gap: 36px;
   align-content: start;
+
+  width: 100%;
+  margin-bottom: 12px;
+  background-color: var(--third-bg-color);
+  border-radius: 8px;
+  padding: 12px;
 }
 
 .result {
@@ -230,10 +237,6 @@ main {
 }
 
 /* delete btn */
-
-:root {
-  /* font-size: calc(20px + (40 - 20) * (100vw - 320px) / (2560 - 320)); */
-}
 
 .del-btn {
   background-color: var(--danger);
